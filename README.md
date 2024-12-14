@@ -10,6 +10,8 @@ The dataset used was found by exploring Kaggle for sufficiently large datasets w
 
 # Initial Data Analysis
 
+Running Project_4_FIFA.ipynb will process the original csv into a more workable csv by removing unused columns, ensuring correct formats for columns, eliminating noisy and unused data like players that lack any evidence of current professional play through non-club affiliation and non existant stats, building larger stat sub-categories to match the original website, splitting the workrate column between offensive and defensive, and renaming columns to comply with SQL. Following this cleaning, we did some initial analyses on the data using Matplotlib and Tableau.
+
 ![Age vs Wage](https://github.com/user-attachments/assets/3affe13d-eeda-4ca0-8a37-4d64b310dc69)
 
 ![Age vs Wage](https://github.com/user-attachments/assets/52f7c3ff-d300-4b7e-81c2-cab06f8c31b0)
@@ -24,7 +26,7 @@ All stats vs age – this was another quick test to see if the data was behaving
   Utilize tableschema.SQL to create the Player table in PostgreSQL under a new database. Once the table is set up, upload the cleaned CSV files into the newly created PostgreSQL table. 
 
 # Pandas
-  To retrieve data from PostgreSQL, begin to run MachineLearningTesting.ipynb with SQLAlchemy and psycopg2 installed. Edit the config.py to connect the code to your own Postgres server. Once you have the data, continue down the notebook to further prepare the data for the ML models. First, we used regex to ensure the wage column, the target variable, is numeric. We the removed the daysjoined column, as it had missing data, the value and potential columns, as they were too closely related to wage and not the player's statistics, as well as the ID and non-numeric columns in order to run the models. Additionally, we decided to filter out players who play goalkeeper as they have a pay curve separate from other players' stats as they are a purely defensive role.
+  To retrieve data from PostgreSQL, begin to run MachineLearningTesting.ipynb with SQLAlchemy and psycopg2 installed. Edit the config.py to connect the code to your own Postgres server. Once you have the data, continue down the notebook to further prepare the data for the ML models. First, we used regex to ensure the wage column, the target variable, is numeric. We the removed the value and potential columns, as they were too closely related to wage and not the player's statistics, as well as the ID and non-numeric columns in order to run the models. Additionally, we decided to filter out players who play goalkeeper as they have a pay curve separate from other players' stats as they are a purely defensive role.
 
 # Preparing the Data for Modeling
 We separated the target variable, wage, as Y and the features as X and then separated these new data frames into training and testing data in an 80%-20% split. We also scaled the features to reduce noise from numerically unbalanced scales across columns.

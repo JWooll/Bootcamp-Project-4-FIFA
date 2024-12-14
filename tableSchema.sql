@@ -60,7 +60,6 @@ Create table Players (
 	Defending float,
 	Goalkeeping float,
 	AllStats float,
-	DaysJoined float,
 	AttackingWorkRate integer,
 	DefensiveWorkRate integer
 	)
